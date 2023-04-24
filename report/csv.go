@@ -33,6 +33,13 @@ func writeCsv(f []Finding, w io.WriteCloser) error {
 		return err
 	}
 	for _, f := range f {
+
+		max_length = 50
+
+		if len(f.Message) > max_length {
+		    f.Message = f.Message[:max_length]   
+		}
+
 		err = cw.Write([]string{f.RuleID,
 			f.Commit,
 			f.File,
