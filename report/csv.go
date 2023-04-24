@@ -34,7 +34,7 @@ func writeCsv(f []Finding, w io.WriteCloser) error {
 	}
 	for _, f := range f {
 
-		max_length = 50
+		var max_length int = 50
 
 		if len(f.Message) > max_length {
 		    f.Message = f.Message[:max_length]   
